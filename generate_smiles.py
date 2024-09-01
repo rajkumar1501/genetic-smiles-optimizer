@@ -127,4 +127,3 @@ if __name__ == "__main__":
         samples[0] += _samples[0]
         samples[1] += _samples[1]
         samples[2] += _samples[2]
-    save_results(model, samples, result_path)

@@ -1,9 +1,5 @@
-<<<<<<< HEAD
+
 # Genetic SMILES Optimizer
-=======
-# README.md
-[![DOI](https://zenodo.org/badge/833483470.svg)](https://zenodo.org/doi/10.5281/zenodo.12958255)
->>>>>>> 95854f02b79c56b8bf3a5a86f6e09e4b79557368
 
 ## Project Overview
 

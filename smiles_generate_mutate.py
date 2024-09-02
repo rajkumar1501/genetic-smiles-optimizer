@@ -18,7 +18,7 @@ from rdkit.DataStructs import TanimotoSimilarity
 from scipy.stats import pearsonr
 import numpy as np
 import torch
-from generate_smiles import load_model, generate_samples
+from mutate_smiles import load_model, generate_samples
 
 from molecule_generation import load_model_from_directory
 
@@ -48,7 +48,7 @@ config_path = os.path.join('paper_checkpoints/ecfp4_with_counts_with_rank', "con
 checkpoint_path = os.path.join('paper_checkpoints/ecfp4_with_counts_with_rank', "weights.ckpt")
 vocabulary_path = "paper_checkpoints/vocabulary.pkl"
 
-initial_population = generate_initial_population(10)
+initial_population = generate_initial_population(2)
 print("Initial Population:", initial_population)
 device = "cpu"
 if torch.cuda.is_available():
@@ -56,7 +56,7 @@ if torch.cuda.is_available():
 
 model = load_model(config_path, checkpoint_path, vocabulary_path, device)
 
-samples = [[], [], [], []]
+samples = []
 for smi in initial_population:
     smi = smi.strip()
     try:
@@ -69,11 +69,18 @@ for smi in initial_population:
         continue
         
     _samples = generate_samples(model, smi, beam_size=10, device=device)
-    
-    samples[0] += _samples[0]
-    samples[1] += _samples[1]
-    samples[2] += _samples[2]
+    for new_smi in _samples:
+                try:
+                    mol = Chem.MolFromSmiles(new_smi)
+                    if mol is None:
+                        print(f"Cannot understand SMILES: {new_smi}")
+                        continue
+                    else:
+                        samples.append(new_smi)
+                except BaseException:
+                        print(f"Cannot understand SMILES: {new_smi}")
 
+                        continue
 
 print(samples)
 

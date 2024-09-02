@@ -111,7 +111,7 @@ if __name__ == "__main__":
     if torch.cuda.is_available():
         device = "cuda"
 
-    samples = [[], [], []]
+    samples = []
     for smi in open(input_smiles).readlines():
         smi = smi.strip()
         try:
@@ -124,6 +124,17 @@ if __name__ == "__main__":
             continue
         model = load_model(config_path, checkpoint_path, vocabulary_path, device)
         _samples = generate_samples(model, smi, beam_size=args.samples, device=device)
-        samples[0] += _samples[0]
-        samples[1] += _samples[1]
-        samples[2] += _samples[2]
+        for new_smi in _samples:
+            try:
+                mol = Chem.MolFromSmiles(smi)
+                if mol is not None:
+                    sample.append(new_smi)
+                else:
+                    print(f"Cannot understand SMILES: {smi}")
+                    continue
+            except BaseException:
+                print(f"Cannot understand SMILES: {smi}")
+                continue
+                    
+        
+    print(sample)

@@ -44,7 +44,7 @@ def sample(
             for _ in range(beam_size):
                 input_smiles_list.append(s)
         nlls = (-node.loglikelihood.detach().cpu().numpy()).ravel()
-        result = (input_smiles_list, output_smiles_list, nlls.tolist())
+        result = output_smiles_list
     else:
         batch_size = src.shape[0]
         ys = model.vocabulary.bos_token * torch.ones(1).to(device)

@@ -1,5 +1,11 @@
 import subprocess
 from typing import Optional
+import pandas as pd
+from rdkit import Chem
+from rdkit.Chem import AllChem
+from rdkit.Chem import MolToPDBBlock
+import os
+import traceback
 
 def smiles_to_pdbqt(smiles: str, output_file: str) -> None:
     """
@@ -8,16 +14,13 @@ def smiles_to_pdbqt(smiles: str, output_file: str) -> None:
     Args:
         smiles (str): The SMILES string to convert.
         output_file (str): Path to the output PDBQT file.
-
-    Returns:
-        None
     """
-    command = f'obabel -:"{smiles}" -O {output_file} --gen3d'
-    try:
-        subprocess.run(command, shell=True, check=True)
-        print(f"SMILES converted to PDBQT and saved to {output_file}.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error converting SMILES to PDBQT: {e}")
+    mol = Chem.MolFromSmiles(smiles)
+    mol = Chem.AddHs(mol)
+    AllChem.EmbedMolecule(mol)
+
+    with open(f"{output_file}.pdbqt", "w") as pdbqt_file:
+        pdbqt_file.write(MolToPDBBlock(mol))
 
 def pdbqt_to_pdb(pdbqt_file: str, output_file: str) -> None:
     """

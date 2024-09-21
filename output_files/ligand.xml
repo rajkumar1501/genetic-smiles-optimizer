@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<autodock_gpu>
+	<version>v1.5.3</version>
+	<arguments>--ffile /mnt/d/Projects/genetic-smiles-optimizer/autodock_linux/Docking-4ieh-main/4ieh_protein.maps.fld --lfile /mnt/d/Projects/genetic-smiles-optimizer/output_files/ligand.pdbqt --nrun 5 --xmloutput 1 --npdb 1</arguments>
+	<grid>/mnt/d/Projects/genetic-smiles-optimizer/autodock_linux/Docking-4ieh-main/4ieh_protein.maps.fld</grid>
+	<ligand>/mnt/d/Projects/genetic-smiles-optimizer/output_files/ligand.pdbqt</ligand>
+	<seed>1726923112 372654</seed>
+	<ls_method>ad</ls_method>
+	<autostop>yes</autostop>
+	<heuristics>yes</heuristics>
+	<run_requested>5</run_requested>
+	<runs>
+		<run id="2">
+			<free_NRG_binding>   -3.72</free_NRG_binding>
+			<final_intermol_NRG> -4.91</final_intermol_NRG>
+			<internal_ligand_NRG>-1.48</internal_ligand_NRG>
+			<torsonial_free_NRG> 1.19</torsonial_free_NRG>
+			<tran0>1.222702 7.050526 9.060215</tran0>
+			<axisangle0>0.25567894 0.81137712 0.52563814 124.888123</axisangle0>
+			<ndihe>4</ndihe>
+			<dihe0>229.730896 145.043213 78.912117 69.069000
+			</dihe0>
+		</run>
+		<run id="4">
+			<free_NRG_binding>   -3.44</free_NRG_binding>
+			<final_intermol_NRG> -4.63</final_intermol_NRG>
+			<internal_ligand_NRG>-1.46</internal_ligand_NRG>
+			<torsonial_free_NRG> 1.19</torsonial_free_NRG>
+			<tran0>11.244922 9.901360 9.865283</tran0>
+			<axisangle0>-0.58445531 0.17616253 0.79207244 181.450668</axisangle0>
+			<ndihe>4</ndihe>
+			<dihe0>219.482208 140.164536 90.924644 78.704521
+			</dihe0>
+		</run>
+		<run id="1">
+			<free_NRG_binding>   -3.44</free_NRG_binding>
+			<final_intermol_NRG> -4.63</final_intermol_NRG>
+			<internal_ligand_NRG>-1.45</internal_ligand_NRG>
+			<torsonial_free_NRG> 1.19</torsonial_free_NRG>
+			<tran0>11.250410 9.898770 9.860840</tran0>
+			<axisangle0>0.58427139 -0.17419079 -0.79264400 178.749863</axisangle0>
+			<ndihe>4</ndihe>
+			<dihe0>219.267975 140.301407 90.602745 78.769127
+			</dihe0>
+		</run>
+		<run id="3">
+			<free_NRG_binding>   -3.44</free_NRG_binding>
+			<final_intermol_NRG> -4.63</final_intermol_NRG>
+			<internal_ligand_NRG>-1.45</internal_ligand_NRG>
+			<torsonial_free_NRG> 1.19</torsonial_free_NRG>
+			<tran0>11.237953 9.897745 9.856552</tran0>
+			<axisangle0>-0.58564122 0.17668230 0.79108011 181.238068</axisangle0>
+			<ndihe>4</ndihe>
+			<dihe0>217.028000 140.459351 91.466293 79.349922
+			</dihe0>
+		</run>
+		<run id="5">
+			<free_NRG_binding>   -3.41</free_NRG_binding>
+			<final_intermol_NRG> -4.60</final_intermol_NRG>
+			<internal_ligand_NRG>-1.46</internal_ligand_NRG>
+			<torsonial_free_NRG> 1.19</torsonial_free_NRG>
+			<tran0>10.515758 9.534980 9.396059</tran0>
+			<axisangle0>-0.81566149 -0.43565428 -0.38065954 190.061813</axisangle0>
+			<ndihe>4</ndihe>
+			<dihe0>145.023895 203.329346 257.332153 232.769867
+			</dihe0>
+		</run>
+	</runs>
+	<result>
+		<clustering_histogram>
+			<cluster cluster_rank="1" lowest_binding_energy="-3.72" run="2" mean_binding_energy="-3.72" num_in_clus="1" />
+			<cluster cluster_rank="2" lowest_binding_energy="-3.44" run="4" mean_binding_energy="-3.43" num_in_clus="4" />
+		</clustering_histogram>
+		<rmsd_table>
+			<run rank="1" sub_rank="1" run="2" binding_energy="-3.72" cluster_rmsd="0.00" reference_rmsd="27.23" />
+			<run rank="2" sub_rank="1" run="4" binding_energy="-3.44" cluster_rmsd="0.00" reference_rmsd="32.78" />
+			<run rank="2" sub_rank="2" run="1" binding_energy="-3.44" cluster_rmsd="0.01" reference_rmsd="32.78" />
+			<run rank="2" sub_rank="3" run="3" binding_energy="-3.44" cluster_rmsd="0.02" reference_rmsd="32.77" />
+			<run rank="2" sub_rank="4" run="5" binding_energy="-3.41" cluster_rmsd="1.53" reference_rmsd="31.87" />
+		</rmsd_table>
+	</result>
+</autodock_gpu>

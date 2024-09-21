@@ -1,0 +1,469 @@
+AutoDock-GPU version: v1.5.3
+
+**********************************************************
+**    AutoDock-GPU AUTODOCKTOOLS-COMPATIBLE DLG FILE    **
+**********************************************************
+
+
+    DOCKING PARAMETERS
+    ________________________
+
+
+Ligand file:                               /mnt/d/Projects/genetic-smiles-optimizer/output_files/ligand.pdbqt
+Grid fld file:                             /mnt/d/Projects/genetic-smiles-optimizer/autodock_linux/Docking-4ieh-main/4ieh_protein.maps.fld
+
+Random seed:                               1726923112, 372654
+Number of runs:                            5
+Number of energy evaluations:              3529412
+Number of generations:                     42000
+Size of population:                        150
+Rate of crossover:                         80.000000%
+Tournament selection probability limit:    60.000000%
+Rate of mutation:                          2.000000%
+Maximal allowed delta movement:            +/- 6.000000A
+Maximal allowed delta angle:               +/- 90.000000
+
+Rate of local search:                      100.000000%
+Maximal number of local search iterations: 300
+Rho lower bound:                           0.010000
+Spread of local search delta movement:     2.000000A
+Spread of local search delta angle:        74.999999
+Limit of consecutive successes/failures:   4
+
+Handle symmetry during clustering:         YES
+RMSD tolerance:                            2.000000A
+
+Program call in command line was:          /mnt/d/Projects/genetic-smiles-optimizer/autodock_linux/adgpu --ffile /mnt/d/Projects/genetic-smiles-optimizer/autodock_linux/Docking-4ieh-main/4ieh_protein.maps.fld --lfile /mnt/d/Projects/genetic-smiles-optimizer/output_files/ligand.pdbqt --nrun 5 --xmloutput 1 --npdb 1 
+
+
+    GRID PARAMETERS
+    ________________________
+
+
+Receptor name:                             4ieh_protein
+Number of grid points (x, y, z):           51, 41, 41
+Grid size (x, y, z):                       18.750000, 15.000000, 15.000000A
+Grid spacing:                              0.375000A
+
+
+    LIGAND PARAMETERS
+    ________________________
+
+
+Ligand name:                               /mnt/d/Projects/genetic-smiles-optimizer/output_files/ligand
+Number of atoms:                           14
+Number of rotatable bonds:                 4
+Number of atom types:                      4
+
+
+    DUMMY DATA (only for ADT-compatibility)
+    ________________________
+
+
+DPF> outlev 1
+DPF> ga_run 5
+DPF> fld /mnt/d/Projects/genetic-smiles-optimizer/autodock_linux/Docking-4ieh-main/4ieh_protein.maps.fld
+DPF> move /mnt/d/Projects/genetic-smiles-optimizer/output_files/ligand.pdbqt
+
+
+    COUNTER STATES
+    ________________________
+
+
+Number of energy evaluations performed:    951558
+Number of generations used:                40
+
+
+    INPUT LIGAND PDBQT FILE:
+    ________________________
+
+
+INPUT-LIGAND-PDBQT: REMARK  Name = /mnt/d/Projects/genetic-smiles-optimizer/output_files/temp.pdb
+INPUT-LIGAND-PDBQT: REMARK  5 active torsions:
+INPUT-LIGAND-PDBQT: REMARK  status: ('A' for Active; 'I' for Inactive)
+INPUT-LIGAND-PDBQT: REMARK    1  A    between atoms: C1_1  and  C2_2
+INPUT-LIGAND-PDBQT: REMARK    2  A    between atoms: C2_2  and  O2_4
+INPUT-LIGAND-PDBQT: REMARK    3  A    between atoms: O2_4  and  C3_5
+INPUT-LIGAND-PDBQT: REMARK    4  A    between atoms: C8_10  and  C9_11
+INPUT-LIGAND-PDBQT: REMARK    5  A    between atoms: C9_11  and  O4_13
+INPUT-LIGAND-PDBQT: REMARK                            x       y       z     vdW  Elec       q    Type
+INPUT-LIGAND-PDBQT: REMARK                         _______ _______ _______ _____ _____    ______ ____
+INPUT-LIGAND-PDBQT: ROOT
+INPUT-LIGAND-PDBQT: ATOM      1  C3  UNL     1      -0.095   0.283   0.028  0.00  0.00    +0.146 A 
+INPUT-LIGAND-PDBQT: ATOM      2  C4  UNL     1      -0.664   1.507  -0.376  0.00  0.00    +0.047 A 
+INPUT-LIGAND-PDBQT: ATOM      3  C5  UNL     1       0.139   2.626  -0.597  0.00  0.00    +0.004 A 
+INPUT-LIGAND-PDBQT: ATOM      4  C6  UNL     1       1.517   2.544  -0.408  0.00  0.00    +0.001 A 
+INPUT-LIGAND-PDBQT: ATOM      5  C7  UNL     1       2.096   1.346   0.012  0.00  0.00    +0.018 A 
+INPUT-LIGAND-PDBQT: ATOM      6  C8  UNL     1       1.304   0.204   0.241  0.00  0.00    +0.101 A 
+INPUT-LIGAND-PDBQT: ENDROOT
+INPUT-LIGAND-PDBQT: BRANCH   6   7
+INPUT-LIGAND-PDBQT: ATOM      7  C9  UNL     1       1.963  -1.051   0.688  0.00  0.00    +0.340 C 
+INPUT-LIGAND-PDBQT: ATOM      8  O3  UNL     1       1.294  -2.102   0.881  0.00  0.00    -0.245 OA
+INPUT-LIGAND-PDBQT: BRANCH   7   9
+INPUT-LIGAND-PDBQT: ATOM      9  O4  UNL     1       3.339  -1.080   0.900  0.00  0.00    -0.477 OA
+INPUT-LIGAND-PDBQT: ATOM     10  H8  UNL     1       3.802  -1.929   1.204  0.00  0.00    +0.295 HD
+INPUT-LIGAND-PDBQT: ENDBRANCH   7   9
+INPUT-LIGAND-PDBQT: ENDBRANCH   6   7
+INPUT-LIGAND-PDBQT: BRANCH   1  11
+INPUT-LIGAND-PDBQT: ATOM     11  O2  UNL     1      -0.902  -0.842   0.265  0.00  0.00    -0.425 OA
+INPUT-LIGAND-PDBQT: BRANCH  11  13
+INPUT-LIGAND-PDBQT: ATOM     12  C1  UNL     1      -2.980  -2.215   0.123  0.00  0.00    +0.136 C 
+INPUT-LIGAND-PDBQT: ATOM     13  C2  UNL     1      -2.093  -1.142  -0.409  0.00  0.00    +0.309 C 
+INPUT-LIGAND-PDBQT: ATOM     14  O1  UNL     1      -2.376  -0.590  -1.506  0.00  0.00    -0.251 OA
+INPUT-LIGAND-PDBQT: ENDBRANCH  11  13
+INPUT-LIGAND-PDBQT: ENDBRANCH   1  11
+INPUT-LIGAND-PDBQT: TORSDOF 4
+
+
+    FINAL DOCKED STATE:
+    ________________________
+
+
+Run:   1 / 5
+Time taken for this run:   0.373s
+
+DOCKED: MODEL        1
+DOCKED: USER    Run = 1
+DOCKED: USER
+DOCKED: USER    Estimated Free Energy of Binding    =  -3.44 kcal/mol  [=(1)+(2)+(3)-(4)]
+DOCKED: USER
+DOCKED: USER    (1) Final Intermolecular Energy     =  -4.63 kcal/mol
+DOCKED: USER        vdW + Hbond + desolv Energy     =  -4.42 kcal/mol
+DOCKED: USER        Electrostatic Energy            =  -0.22 kcal/mol
+DOCKED: USER        Moving Ligand-Fixed Receptor    =  -4.63 kcal/mol
+DOCKED: USER        Moving Ligand-Moving Receptor   =  +0.00 kcal/mol
+DOCKED: USER    (2) Final Total Internal Energy     =  -1.45 kcal/mol
+DOCKED: USER    (3) Torsional Free Energy           =  +1.19 kcal/mol
+DOCKED: USER    (4) Unbound System's Energy         =  -1.45 kcal/mol
+DOCKED: USER
+DOCKED: USER
+DOCKED: REMARK  Name = /mnt/d/Projects/genetic-smiles-optimizer/output_files/temp.pdb
+DOCKED: REMARK  5 active torsions:
+DOCKED: REMARK  status: ('A' for Active; 'I' for Inactive)
+DOCKED: REMARK    1  A    between atoms: C1_1  and  C2_2
+DOCKED: REMARK    2  A    between atoms: C2_2  and  O2_4
+DOCKED: REMARK    3  A    between atoms: O2_4  and  C3_5
+DOCKED: REMARK    4  A    between atoms: C8_10  and  C9_11
+DOCKED: REMARK    5  A    between atoms: C9_11  and  O4_13
+DOCKED: REMARK                            x       y       z     vdW  Elec       q    Type
+DOCKED: REMARK                         _______ _______ _______ _____ _____    ______ ____
+DOCKED: USER                              x       y       z     vdW  Elec       q    Type
+DOCKED: USER                           _______ _______ _______ _____ _____    ______ ____
+DOCKED: ROOT
+DOCKED: ATOM      1  C3  UNL     1      14.310  27.219  14.053 -0.32 +0.02    +0.146 A 
+DOCKED: ATOM      2  C4  UNL     1      14.639  26.089  14.827 -0.43 +0.00    +0.047 A 
+DOCKED: ATOM      3  C5  UNL     1      14.381  24.802  14.353 -0.46 +0.00    +0.004 A 
+DOCKED: ATOM      4  C6  UNL     1      13.784  24.625  13.107 -0.43 +0.00    +0.001 A 
+DOCKED: ATOM      5  C7  UNL     1      13.433  25.733  12.335 -0.38 +0.00    +0.018 A 
+DOCKED: ATOM      6  C8  UNL     1      13.684  27.040  12.794 -0.33 +0.03    +0.101 A 
+DOCKED: ENDROOT
+DOCKED: BRANCH   6   7
+DOCKED: ATOM      7  C9  UNL     1      13.293  28.191  11.938 -0.31 +0.17    +0.340 C 
+DOCKED: ATOM      8  O3  UNL     1      13.430  28.145  10.686 -0.58 -0.19    -0.245 OA
+DOCKED: BRANCH   7   9
+DOCKED: ATOM      9  O4  UNL     1      12.765  29.343  12.516 -0.27 -0.24    -0.477 OA
+DOCKED: ATOM     10  H8  UNL     1      13.132  29.704  13.389 +0.10 +0.09    +0.295 HD
+DOCKED: ENDBRANCH   7   9
+DOCKED: ENDBRANCH   6   7
+DOCKED: BRANCH   1  11
+DOCKED: ATOM     11  O2  UNL     1      14.556  28.516  14.533 -0.22 -0.06    -0.425 OA
+DOCKED: BRANCH  11  13
+DOCKED: ATOM     12  C1  UNL     1      16.947  29.207  14.374 -0.21 +0.01    +0.136 C 
+DOCKED: ATOM     13  C2  UNL     1      15.513  29.403  14.022 -0.22 +0.09    +0.309 C 
+DOCKED: ATOM     14  O1  UNL     1      15.170  30.414  13.353 -0.35 -0.15    -0.251 OA
+DOCKED: ENDBRANCH  11  13
+DOCKED: ENDBRANCH   1  11
+DOCKED: TORSDOF 4
+DOCKED: TER
+DOCKED: ENDMDL
+________________________________________________________________________________
+
+
+    FINAL DOCKED STATE:
+    ________________________
+
+
+Run:   2 / 5
+Time taken for this run:   0.373s
+
+DOCKED: MODEL        2
+DOCKED: USER    Run = 2
+DOCKED: USER
+DOCKED: USER    Estimated Free Energy of Binding    =  -3.72 kcal/mol  [=(1)+(2)+(3)-(4)]
+DOCKED: USER
+DOCKED: USER    (1) Final Intermolecular Energy     =  -4.91 kcal/mol
+DOCKED: USER        vdW + Hbond + desolv Energy     =  -4.99 kcal/mol
+DOCKED: USER        Electrostatic Energy            =  +0.08 kcal/mol
+DOCKED: USER        Moving Ligand-Fixed Receptor    =  -4.91 kcal/mol
+DOCKED: USER        Moving Ligand-Moving Receptor   =  +0.00 kcal/mol
+DOCKED: USER    (2) Final Total Internal Energy     =  -1.48 kcal/mol
+DOCKED: USER    (3) Torsional Free Energy           =  +1.19 kcal/mol
+DOCKED: USER    (4) Unbound System's Energy         =  -1.48 kcal/mol
+DOCKED: USER
+DOCKED: USER
+DOCKED: REMARK  Name = /mnt/d/Projects/genetic-smiles-optimizer/output_files/temp.pdb
+DOCKED: REMARK  5 active torsions:
+DOCKED: REMARK  status: ('A' for Active; 'I' for Inactive)
+DOCKED: REMARK    1  A    between atoms: C1_1  and  C2_2
+DOCKED: REMARK    2  A    between atoms: C2_2  and  O2_4
+DOCKED: REMARK    3  A    between atoms: O2_4  and  C3_5
+DOCKED: REMARK    4  A    between atoms: C8_10  and  C9_11
+DOCKED: REMARK    5  A    between atoms: C9_11  and  O4_13
+DOCKED: REMARK                            x       y       z     vdW  Elec       q    Type
+DOCKED: REMARK                         _______ _______ _______ _____ _____    ______ ____
+DOCKED: USER                              x       y       z     vdW  Elec       q    Type
+DOCKED: USER                           _______ _______ _______ _____ _____    ______ ____
+DOCKED: ROOT
+DOCKED: ATOM      1  C3  UNL     1       4.319  24.467  13.284 -0.41 -0.02    +0.146 A 
+DOCKED: ATOM      2  C4  UNL     1       4.103  24.416  14.676 -0.58 -0.01    +0.047 A 
+DOCKED: ATOM      3  C5  UNL     1       3.415  25.440  15.326 -0.69 -0.00    +0.004 A 
+DOCKED: ATOM      4  C6  UNL     1       2.943  26.533  14.602 -0.64 -0.00    +0.001 A 
+DOCKED: ATOM      5  C7  UNL     1       3.165  26.611  13.227 -0.58 -0.00    +0.018 A 
+DOCKED: ATOM      6  C8  UNL     1       3.858  25.588  12.550 -0.39 -0.02    +0.101 A 
+DOCKED: ENDROOT
+DOCKED: BRANCH   6   7
+DOCKED: ATOM      7  C9  UNL     1       4.072  25.712  11.084 -0.22 -0.09    +0.340 C 
+DOCKED: ATOM      8  O3  UNL     1       3.214  26.270  10.348 -0.28 +0.10    -0.245 OA
+DOCKED: BRANCH   7   9
+DOCKED: ATOM      9  O4  UNL     1       5.234  25.209  10.504 -0.08 +0.13    -0.477 OA
+DOCKED: ATOM     10  H8  UNL     1       5.546  24.264  10.697 +0.18 -0.06    +0.295 HD
+DOCKED: ENDBRANCH   7   9
+DOCKED: ENDBRANCH   6   7
+DOCKED: BRANCH   1  11
+DOCKED: ATOM     11  O2  UNL     1       5.024  23.444  12.628 -0.23 +0.06    -0.425 OA
+DOCKED: BRANCH  11  13
+DOCKED: ATOM     12  C1  UNL     1       4.057  21.145  12.572 -0.51 -0.02    +0.136 C 
+DOCKED: ATOM     13  C2  UNL     1       4.444  22.409  11.883 -0.33 -0.05    +0.309 C 
+DOCKED: ATOM     14  O1  UNL     1       4.335  22.491  10.630 -0.23 +0.05    -0.251 OA
+DOCKED: ENDBRANCH  11  13
+DOCKED: ENDBRANCH   1  11
+DOCKED: TORSDOF 4
+DOCKED: TER
+DOCKED: ENDMDL
+________________________________________________________________________________
+
+
+    FINAL DOCKED STATE:
+    ________________________
+
+
+Run:   3 / 5
+Time taken for this run:   0.373s
+
+DOCKED: MODEL        3
+DOCKED: USER    Run = 3
+DOCKED: USER
+DOCKED: USER    Estimated Free Energy of Binding    =  -3.44 kcal/mol  [=(1)+(2)+(3)-(4)]
+DOCKED: USER
+DOCKED: USER    (1) Final Intermolecular Energy     =  -4.63 kcal/mol
+DOCKED: USER        vdW + Hbond + desolv Energy     =  -4.42 kcal/mol
+DOCKED: USER        Electrostatic Energy            =  -0.22 kcal/mol
+DOCKED: USER        Moving Ligand-Fixed Receptor    =  -4.63 kcal/mol
+DOCKED: USER        Moving Ligand-Moving Receptor   =  +0.00 kcal/mol
+DOCKED: USER    (2) Final Total Internal Energy     =  -1.45 kcal/mol
+DOCKED: USER    (3) Torsional Free Energy           =  +1.19 kcal/mol
+DOCKED: USER    (4) Unbound System's Energy         =  -1.45 kcal/mol
+DOCKED: USER
+DOCKED: USER
+DOCKED: REMARK  Name = /mnt/d/Projects/genetic-smiles-optimizer/output_files/temp.pdb
+DOCKED: REMARK  5 active torsions:
+DOCKED: REMARK  status: ('A' for Active; 'I' for Inactive)
+DOCKED: REMARK    1  A    between atoms: C1_1  and  C2_2
+DOCKED: REMARK    2  A    between atoms: C2_2  and  O2_4
+DOCKED: REMARK    3  A    between atoms: O2_4  and  C3_5
+DOCKED: REMARK    4  A    between atoms: C8_10  and  C9_11
+DOCKED: REMARK    5  A    between atoms: C9_11  and  O4_13
+DOCKED: REMARK                            x       y       z     vdW  Elec       q    Type
+DOCKED: REMARK                         _______ _______ _______ _____ _____    ______ ____
+DOCKED: USER                              x       y       z     vdW  Elec       q    Type
+DOCKED: USER                           _______ _______ _______ _____ _____    ______ ____
+DOCKED: ROOT
+DOCKED: ATOM      1  C3  UNL     1      14.295  27.220  14.050 -0.32 +0.02    +0.146 A 
+DOCKED: ATOM      2  C4  UNL     1      14.617  26.093  14.831 -0.43 +0.00    +0.047 A 
+DOCKED: ATOM      3  C5  UNL     1      14.358  24.805  14.361 -0.46 +0.00    +0.004 A 
+DOCKED: ATOM      4  C6  UNL     1      13.765  24.624  13.114 -0.43 +0.00    +0.001 A 
+DOCKED: ATOM      5  C7  UNL     1      13.420  25.729  12.335 -0.38 +0.00    +0.018 A 
+DOCKED: ATOM      6  C8  UNL     1      13.672  27.038  12.790 -0.33 +0.03    +0.101 A 
+DOCKED: ENDROOT
+DOCKED: BRANCH   6   7
+DOCKED: ATOM      7  C9  UNL     1      13.288  28.186  11.928 -0.31 +0.17    +0.340 C 
+DOCKED: ATOM      8  O3  UNL     1      13.428  28.133  10.676 -0.58 -0.19    -0.245 OA
+DOCKED: BRANCH   7   9
+DOCKED: ATOM      9  O4  UNL     1      12.764  29.343  12.498 -0.27 -0.24    -0.477 OA
+DOCKED: ATOM     10  H8  UNL     1      13.107  29.688  13.388 +0.10 +0.09    +0.295 HD
+DOCKED: ENDBRANCH   7   9
+DOCKED: ENDBRANCH   6   7
+DOCKED: BRANCH   1  11
+DOCKED: ATOM     11  O2  UNL     1      14.541  28.519  14.526 -0.22 -0.06    -0.425 OA
+DOCKED: BRANCH  11  13
+DOCKED: ATOM     12  C1  UNL     1      16.934  29.200  14.337 -0.21 +0.01    +0.136 C 
+DOCKED: ATOM     13  C2  UNL     1      15.495  29.405  14.007 -0.23 +0.09    +0.309 C 
+DOCKED: ATOM     14  O1  UNL     1      15.147  30.423  13.352 -0.35 -0.15    -0.251 OA
+DOCKED: ENDBRANCH  11  13
+DOCKED: ENDBRANCH   1  11
+DOCKED: TORSDOF 4
+DOCKED: TER
+DOCKED: ENDMDL
+________________________________________________________________________________
+
+
+    FINAL DOCKED STATE:
+    ________________________
+
+
+Run:   4 / 5
+Time taken for this run:   0.373s
+
+DOCKED: MODEL        4
+DOCKED: USER    Run = 4
+DOCKED: USER
+DOCKED: USER    Estimated Free Energy of Binding    =  -3.44 kcal/mol  [=(1)+(2)+(3)-(4)]
+DOCKED: USER
+DOCKED: USER    (1) Final Intermolecular Energy     =  -4.63 kcal/mol
+DOCKED: USER        vdW + Hbond + desolv Energy     =  -4.42 kcal/mol
+DOCKED: USER        Electrostatic Energy            =  -0.22 kcal/mol
+DOCKED: USER        Moving Ligand-Fixed Receptor    =  -4.63 kcal/mol
+DOCKED: USER        Moving Ligand-Moving Receptor   =  +0.00 kcal/mol
+DOCKED: USER    (2) Final Total Internal Energy     =  -1.46 kcal/mol
+DOCKED: USER    (3) Torsional Free Energy           =  +1.19 kcal/mol
+DOCKED: USER    (4) Unbound System's Energy         =  -1.46 kcal/mol
+DOCKED: USER
+DOCKED: USER
+DOCKED: REMARK  Name = /mnt/d/Projects/genetic-smiles-optimizer/output_files/temp.pdb
+DOCKED: REMARK  5 active torsions:
+DOCKED: REMARK  status: ('A' for Active; 'I' for Inactive)
+DOCKED: REMARK    1  A    between atoms: C1_1  and  C2_2
+DOCKED: REMARK    2  A    between atoms: C2_2  and  O2_4
+DOCKED: REMARK    3  A    between atoms: O2_4  and  C3_5
+DOCKED: REMARK    4  A    between atoms: C8_10  and  C9_11
+DOCKED: REMARK    5  A    between atoms: C9_11  and  O4_13
+DOCKED: REMARK                            x       y       z     vdW  Elec       q    Type
+DOCKED: REMARK                         _______ _______ _______ _____ _____    ______ ____
+DOCKED: USER                              x       y       z     vdW  Elec       q    Type
+DOCKED: USER                           _______ _______ _______ _____ _____    ______ ____
+DOCKED: ROOT
+DOCKED: ATOM      1  C3  UNL     1      14.305  27.225  14.059 -0.32 +0.02    +0.146 A 
+DOCKED: ATOM      2  C4  UNL     1      14.633  26.099  14.840 -0.42 +0.00    +0.047 A 
+DOCKED: ATOM      3  C5  UNL     1      14.377  24.810  14.372 -0.46 +0.00    +0.004 A 
+DOCKED: ATOM      4  C6  UNL     1      13.780  24.626  13.127 -0.43 +0.00    +0.001 A 
+DOCKED: ATOM      5  C7  UNL     1      13.429  25.729  12.349 -0.38 +0.00    +0.018 A 
+DOCKED: ATOM      6  C8  UNL     1      13.679  27.039  12.801 -0.33 +0.03    +0.101 A 
+DOCKED: ENDROOT
+DOCKED: BRANCH   6   7
+DOCKED: ATOM      7  C9  UNL     1      13.287  28.185  11.939 -0.31 +0.17    +0.340 C 
+DOCKED: ATOM      8  O3  UNL     1      13.428  28.133  10.687 -0.57 -0.19    -0.245 OA
+DOCKED: BRANCH   7   9
+DOCKED: ATOM      9  O4  UNL     1      12.756  29.339  12.510 -0.27 -0.24    -0.477 OA
+DOCKED: ATOM     10  H8  UNL     1      13.122  29.706  13.381 +0.10 +0.09    +0.295 HD
+DOCKED: ENDBRANCH   7   9
+DOCKED: ENDBRANCH   6   7
+DOCKED: BRANCH   1  11
+DOCKED: ATOM     11  O2  UNL     1      14.549  28.525  14.532 -0.22 -0.06    -0.425 OA
+DOCKED: BRANCH  11  13
+DOCKED: ATOM     12  C1  UNL     1      16.942  29.211  14.367 -0.21 +0.01    +0.136 C 
+DOCKED: ATOM     13  C2  UNL     1      15.507  29.409  14.018 -0.22 +0.09    +0.309 C 
+DOCKED: ATOM     14  O1  UNL     1      15.165  30.420  13.348 -0.35 -0.15    -0.251 OA
+DOCKED: ENDBRANCH  11  13
+DOCKED: ENDBRANCH   1  11
+DOCKED: TORSDOF 4
+DOCKED: TER
+DOCKED: ENDMDL
+________________________________________________________________________________
+
+
+    FINAL DOCKED STATE:
+    ________________________
+
+
+Run:   5 / 5
+Time taken for this run:   0.373s
+
+DOCKED: MODEL        5
+DOCKED: USER    Run = 5
+DOCKED: USER
+DOCKED: USER    Estimated Free Energy of Binding    =  -3.41 kcal/mol  [=(1)+(2)+(3)-(4)]
+DOCKED: USER
+DOCKED: USER    (1) Final Intermolecular Energy     =  -4.60 kcal/mol
+DOCKED: USER        vdW + Hbond + desolv Energy     =  -4.40 kcal/mol
+DOCKED: USER        Electrostatic Energy            =  -0.20 kcal/mol
+DOCKED: USER        Moving Ligand-Fixed Receptor    =  -4.60 kcal/mol
+DOCKED: USER        Moving Ligand-Moving Receptor   =  +0.00 kcal/mol
+DOCKED: USER    (2) Final Total Internal Energy     =  -1.46 kcal/mol
+DOCKED: USER    (3) Torsional Free Energy           =  +1.19 kcal/mol
+DOCKED: USER    (4) Unbound System's Energy         =  -1.46 kcal/mol
+DOCKED: USER
+DOCKED: USER
+DOCKED: REMARK  Name = /mnt/d/Projects/genetic-smiles-optimizer/output_files/temp.pdb
+DOCKED: REMARK  5 active torsions:
+DOCKED: REMARK  status: ('A' for Active; 'I' for Inactive)
+DOCKED: REMARK    1  A    between atoms: C1_1  and  C2_2
+DOCKED: REMARK    2  A    between atoms: C2_2  and  O2_4
+DOCKED: REMARK    3  A    between atoms: O2_4  and  C3_5
+DOCKED: REMARK    4  A    between atoms: C8_10  and  C9_11
+DOCKED: REMARK    5  A    between atoms: C9_11  and  O4_13
+DOCKED: REMARK                            x       y       z     vdW  Elec       q    Type
+DOCKED: REMARK                         _______ _______ _______ _____ _____    ______ ____
+DOCKED: USER                              x       y       z     vdW  Elec       q    Type
+DOCKED: USER                           _______ _______ _______ _____ _____    ______ ____
+DOCKED: ROOT
+DOCKED: ATOM      1  C3  UNL     1      13.519  26.466  12.914 -0.29 +0.03    +0.146 A 
+DOCKED: ATOM      2  C4  UNL     1      13.831  25.208  13.466 -0.43 +0.01    +0.047 A 
+DOCKED: ATOM      3  C5  UNL     1      14.662  25.106  14.581 -0.46 +0.00    +0.004 A 
+DOCKED: ATOM      4  C6  UNL     1      15.203  26.254  15.155 -0.43 +0.00    +0.001 A 
+DOCKED: ATOM      5  C7  UNL     1      14.923  27.508  14.610 -0.42 +0.00    +0.018 A 
+DOCKED: ATOM      6  C8  UNL     1      14.086  27.634  13.484 -0.34 +0.02    +0.101 A 
+DOCKED: ENDROOT
+DOCKED: BRANCH   6   7
+DOCKED: ATOM      7  C9  UNL     1      13.815  28.989  12.937 -0.30 +0.16    +0.340 C 
+DOCKED: ATOM      8  O3  UNL     1      14.623  29.938  13.125 -0.39 -0.15    -0.245 OA
+DOCKED: BRANCH   7   9
+DOCKED: ATOM      9  O4  UNL     1      12.656  29.226  12.203 -0.32 -0.26    -0.477 OA
+DOCKED: ATOM     10  H8  UNL     1      12.268  28.514  11.595 +0.19 +0.14    +0.295 HD
+DOCKED: ENDBRANCH   7   9
+DOCKED: ENDBRANCH   6   7
+DOCKED: BRANCH   1  11
+DOCKED: ATOM     11  O2  UNL     1      12.694  26.572  11.783 -0.15 -0.10    -0.425 OA
+DOCKED: BRANCH  11  13
+DOCKED: ATOM     12  C1  UNL     1      13.357  25.408   9.678 -0.22 +0.03    +0.136 C 
+DOCKED: ATOM     13  C2  UNL     1      13.142  26.660  10.458 -0.20 +0.10    +0.309 C 
+DOCKED: ATOM     14  O1  UNL     1      13.458  27.769   9.951 -0.63 -0.18    -0.251 OA
+DOCKED: ENDBRANCH  11  13
+DOCKED: ENDBRANCH   1  11
+DOCKED: TORSDOF 4
+DOCKED: TER
+DOCKED: ENDMDL
+________________________________________________________________________________
+
+
+    CLUSTERING HISTOGRAM
+    ____________________
+
+
+________________________________________________________________________________
+     |           |     |           |     |
+Clus | Lowest    | Run | Mean      | Num | Histogram
+-ter | Binding   |     | Binding   | in  |
+Rank | Energy    |     | Energy    | Clus|    5    10   15   20   25   30   35
+_____|___________|_____|___________|_____|____:____|____:____|____:____|____:___
+   1 |     -3.72 |   2 |     -3.72 |   1 |#
+   2 |     -3.44 |   4 |     -3.43 |   4 |####
+_____|___________|_____|___________|_____|______________________________________
+
+
+    RMSD TABLE
+    __________
+
+
+_____________________________________________________________________
+     |      |      |           |         |                 |
+Rank | Sub- | Run  | Binding   | Cluster | Reference       | Grep
+     | Rank |      | Energy    | RMSD    | RMSD            | Pattern
+_____|______|______|___________|_________|_________________|___________
+   1      1      2       -3.72      0.00     27.23           RANKING
+   2      1      4       -3.44      0.00     32.78           RANKING
+   2      2      1       -3.44      0.01     32.78           RANKING
+   2      3      3       -3.44      0.02     32.77           RANKING
+   2      4      5       -3.41      1.53     31.87           RANKING
+
+Run time 1.882 sec
+Idle time 0.628 sec

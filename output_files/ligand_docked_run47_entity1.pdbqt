@@ -1,0 +1,35 @@
+REMARK  Name = /mnt/d/Projects/genetic-smiles-optimizer/output_files/temp.pdb
+REMARK  5 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_4
+REMARK    3  A    between atoms: O2_4  and  C3_5
+REMARK    4  A    between atoms: C8_10  and  C9_11
+REMARK    5  A    between atoms: C9_11  and  O4_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  UNL     1       4.253  24.412  13.120  0.00  0.00    +0.146 A 
+ATOM      2  C4  UNL     1       4.207  24.228  14.516  0.00  0.00    +0.047 A 
+ATOM      3  C5  UNL     1       3.622  25.189  15.341  0.00  0.00    +0.004 A 
+ATOM      4  C6  UNL     1       3.086  26.350  14.788  0.00  0.00    +0.001 A 
+ATOM      5  C7  UNL     1       3.140  26.559  13.410  0.00  0.00    +0.018 A 
+ATOM      6  C8  UNL     1       3.726  25.602  12.558  0.00  0.00    +0.101 A 
+ENDROOT
+BRANCH   6   7
+ATOM      7  C9  UNL     1       3.763  25.867  11.096  0.00  0.00    +0.340 C 
+ATOM      8  O3  UNL     1       2.928  26.641  10.556  0.00  0.00    -0.245 OA
+BRANCH   7   9
+ATOM      9  O4  UNL     1       4.729  25.257  10.300  0.00  0.00    -0.477 OA
+ATOM     10  H8  UNL     1       4.831  24.248  10.285  0.00  0.00    +0.295 HD
+ENDBRANCH   7   9
+ENDBRANCH   6   7
+BRANCH   1  11
+ATOM     11  O2  UNL     1       4.853  23.453  12.287  0.00  0.00    -0.425 OA
+BRANCH  11  13
+ATOM     12  C1  UNL     1       4.061  21.100  12.531  0.00  0.00    +0.136 C 
+ATOM     13  C2  UNL     1       4.204  22.346  11.726  0.00  0.00    +0.309 C 
+ATOM     14  O1  UNL     1       3.828  22.354  10.523  0.00  0.00    -0.251 OA
+ENDBRANCH  11  13
+ENDBRANCH   1  11
+TORSDOF 4

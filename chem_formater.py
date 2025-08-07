@@ -9,49 +9,69 @@ from rdkit.Chem import AllChem
 OUTPUT_DIR = os.path.join(os.getcwd(), "output_files")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+# chem_formater.py
+
 def smiles_to_pdbqt(smiles, output_filename):
     """
-    Convert SMILES to PDBQT with minimum energy conformation.
+    Convert SMILES to PDBQT with minimized energy conformation.
     Output file is saved in OUTPUT_DIR with the specified output_filename.
     Requires Open Babel installed and accessible via command line.
     """
-    # Generate RDKit molecule from SMILES
-    mol = Chem.MolFromSmiles(smiles)
-    if mol is None:
-        raise ValueError("Invalid SMILES string.")
+    print("Starting SMILES to PDBQT conversion...")
+    try:
+        # Generate RDKit molecule from SMILES
+        mol = Chem.MolFromSmiles(smiles)
+        if mol is None:
+            raise ValueError("Invalid SMILES string.")
 
-    # Add hydrogens
-    mol = Chem.AddHs(mol)
+        # Add hydrogens
+        mol = Chem.AddHs(mol)
 
-    # Generate 3D coordinates
-    embed_status = AllChem.EmbedMolecule(mol, AllChem.ETKDG())
-    if embed_status != 0:
-        raise ValueError("Embedding molecule failed.")
+        # Generate 3D coordinates
+        params = AllChem.ETKDG()
+        params.randomSeed = 0xf00d
+        embed_status = AllChem.EmbedMolecule(mol, params)
+        if embed_status != 0:
+            raise ValueError("Embedding molecule failed.")
 
-    # Optimize geometry
-    optimize_status = AllChem.UFFOptimizeMolecule(mol)
-    if optimize_status != 0:
-        raise ValueError("Geometry optimization failed.")
+        # Optimize geometry
+        optimize_status = AllChem.UFFOptimizeMolecule(mol)
+        if optimize_status != 0:
+            raise ValueError("Geometry optimization failed.")
 
-    # Write to temporary PDB file in OUTPUT_DIR
-    pdb_temp_path = os.path.join(OUTPUT_DIR, "temp.pdb")
-    Chem.MolToPDBFile(mol, pdb_temp_path)
+        # Write to temporary PDB file in OUTPUT_DIR
+        pdb_temp_path = output_filename.replace('.pdbqt', '.pdb')
+        Chem.MolToPDBFile(mol, pdb_temp_path)
+        print(f"PDB file written to temporary location: {pdb_temp_path}")
 
-    # Output PDBQT path in OUTPUT_DIR
-    pdbqt_output_path = os.path.join(OUTPUT_DIR, output_filename)
+        # Output PDBQT path
+        pdbqt_output_path = output_filename
 
-    # Convert PDB to PDBQT using Open Babel
-    obabel_cmd = ["obabel", pdb_temp_path, "-O", pdbqt_output_path, "--partialcharge", "gasteiger"]
-    result = subprocess.run(obabel_cmd, capture_output=True, text=True)
+        # Convert PDB to PDBQT using Open Babel (version 2.4.1 syntax)
+        obabel_cmd = [
+            "obabel",
+            "-ipdb", pdb_temp_path,
+            "-opdbqt",
+            "-O", pdbqt_output_path,
+            "--partialcharge", "gasteiger"
+        ]
+        print(f"Running Open Babel command: {' '.join(obabel_cmd)}")
+        result = subprocess.run(obabel_cmd, capture_output=True, text=True)
 
-    # Remove temporary PDB file
-    os.remove(pdb_temp_path)
+        # Remove temporary PDB file
+        os.remove(pdb_temp_path)
+        print(f"Temporary PDB file removed: {pdb_temp_path}")
 
-    if result.returncode != 0:
-        raise RuntimeError(f"Open Babel conversion failed: {result.stderr}")
+        if result.returncode != 0:
+            raise RuntimeError(f"Open Babel conversion failed: {result.stderr}")
 
-    print(f"PDBQT file saved to {pdbqt_output_path}")
-    return pdbqt_output_path
+        print(f"PDBQT file saved to {pdbqt_output_path}")
+        return pdbqt_output_path
+
+    except Exception as e:
+        print(f"Error processing molecule {smiles}: {e}")
+        raise e
+
 
 def pdbqt_to_pdb(input_filename, output_filename):
     """

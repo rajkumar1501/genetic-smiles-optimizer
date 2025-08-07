@@ -153,4 +153,5 @@ dependencies:
       - xmod==1.8.1
       - yarl==1.9.4
       - zipp==3.20.0
+      - posebusters==0.2.16
 prefix: /home/rajkumar/miniconda3/envs/generic_smiles_optimizer

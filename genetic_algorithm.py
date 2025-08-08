@@ -20,7 +20,7 @@ from pathlib import Path
 RDLogger.DisableLog('rdApp.*')
 
 # Paths to models and configurations
-SMILES_GENERATION_MODEL_PATH = '/mnt/d/Projects/molgen_weights'  # Update as needed
+SMILES_GENERATION_MODEL_PATH = 'molgen_weights'  # Update as needed
 MUTATION_MODEL_CONFIG_PATH = 'paper_checkpoints/ecfp4_with_counts_with_rank/config.yml'
 MUTATION_MODEL_CHECKPOINT_PATH = 'paper_checkpoints/ecfp4_with_counts_with_rank/weights.ckpt'
 MUTATION_MODEL_VOCAB_PATH = 'paper_checkpoints/vocabulary.pkl'

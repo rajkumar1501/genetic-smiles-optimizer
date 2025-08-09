@@ -22,6 +22,7 @@ dependencies:
   - wheel=0.43.0=py39h06a4308_0
   - xz=5.4.6=h5eee18b_1
   - zlib=1.2.13=h5eee18b_1
+  - openbabel
   - pip:
       - absl-py==2.1.0
       - aiohappyeyeballs==2.4.0
@@ -155,3 +156,4 @@ dependencies:
       - zipp==3.20.0
       - posebusters==0.2.16
 prefix: /home/rajkumar/miniconda3/envs/generic_smiles_optimizer
+

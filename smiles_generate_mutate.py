@@ -22,7 +22,7 @@ from mutate_smiles import load_model, generate_samples
 
 from molecule_generation import load_model_from_directory
 
-SMILES_GENERATION_MODEL_PATH = '/mnt/d/Projects/molgen_weights'
+SMILES_GENERATION_MODEL_PATH = './molgen_weights'
 
 def generate_initial_population(size: int) -> List[str]:
     """

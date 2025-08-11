@@ -3,29 +3,43 @@
 import os
 import subprocess
 from chem_formater import smiles_to_pdbqt
+import re
 
-def extract_best_docking_score(autodock_output):
+def extract_best_docking_score(autodock_output: str):
     """
-    Extracts the best docking score from the AutoDock-GPU output.
-
-    Args:
-        autodock_output (str): The stdout output from AutoDock-GPU.
-
-    Returns:
-        float or None: The best docking score if found, else None.
+    Extract best docking score from AutoDock-GPU output.
+    Supports both legacy "best energy" and newer "best inter + intra" formats.
+    Returns float or None.
     """
-    import re
     best_score = None
-    lines = autodock_output.strip().split('\n')
-    for line in lines:
-        line = line.strip()
-        # Look for the line that contains "best energy"
-        if 'best energy' in line:
-            # Example line: "159 samples, best energy    -6.19 kcal/mol."
-            match = re.search(r'best energy\s+([-\d\.]+)\s+kcal/mol', line)
-            if match:
-                best_score = float(match.group(1))
-                break
+    for raw in autodock_output.splitlines():
+        line = raw.strip()
+
+        # Newer format (e.g., "377 samples, best inter + intra    -4.82 kcal/mol.")
+        m = re.search(r'best\s+inter\s*\+\s*intra\s+([-\d.]+)\s+kcal/mol', line, flags=re.IGNORECASE)
+        if m:
+            try:
+                return float(m.group(1))
+            except ValueError:
+                pass
+
+        # Legacy format (e.g., "159 samples, best energy    -6.19 kcal/mol.")
+        m = re.search(r'best\s+energy\s+([-\d.]+)\s+kcal/mol', line, flags=re.IGNORECASE)
+        if m:
+            try:
+                return float(m.group(1))
+            except ValueError:
+                pass
+
+        # Also handle summary line sometimes seen:
+        # "Finished evaluation after reaching\n-15.53 +/- 0.10 kcal/mol combined."
+        m = re.search(r'([-\d.]+)\s*\+/-\s*[\d.]+\s*kcal/mol\s+combined', line, flags=re.IGNORECASE)
+        if m:
+            try:
+                best_score = float(m.group(1))
+            except ValueError:
+                pass
+
     return best_score
 
 def run_autodock_gpu(smiles, receptor_fld_path, output_dir, nrun=50, ligand_pdbqt_filename='ligand.pdbqt', best_pdbqt_filename='best.pdbqt'):
@@ -88,8 +102,10 @@ def run_autodock_gpu(smiles, receptor_fld_path, output_dir, nrun=50, ligand_pdbq
         print("Failed to extract the best docking score.")
 
     # The best pose is saved as 'best.pdbqt' as specified by --gbest
-    best_pose_filename = 'best.pdbqt'
-    best_pose_filepath = os.path.join(os.getcwd(), best_pose_filename)
+    best_pose_filename = ligand_pdbqt_filename.replace('.pdbqt','')+'-best.pdbqt'
+    
+    best_pose_filepath = os.path.join(output_dir, best_pose_filename)
+    print(best_pose_filepath)
     renamed_best_pose_filepath = os.path.join(output_dir, best_pdbqt_filename)
 
     if os.path.exists(best_pose_filepath):

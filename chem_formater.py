@@ -25,17 +25,17 @@ def smiles_to_pdbqt(smiles, output_filename):
             raise ValueError("Invalid SMILES string.")
 
         # Add hydrogens
-        mol = Chem.AddHs(mol)
+        mol = Chem.AddHs(mol, addResidueInfo = True, addCoords = 1)
 
         # Generate 3D coordinates
         params = AllChem.ETKDG()
         params.randomSeed = 0xf00d
-        embed_status = AllChem.EmbedMolecule(mol, params)
+        embed_status = AllChem.EmbedMolecule(mol, AllChem.ETKDG())
         if embed_status != 0:
             raise ValueError("Embedding molecule failed.")
 
         # Optimize geometry
-        optimize_status = AllChem.UFFOptimizeMolecule(mol)
+        optimize_status = AllChem.MMFFOptimizeMolecule(mol, mmffVariant='MMFF94s', maxIters=9000)
         if optimize_status != 0:
             raise ValueError("Geometry optimization failed.")
 
@@ -52,6 +52,7 @@ def smiles_to_pdbqt(smiles, output_filename):
             "obabel",
             "-ipdb", pdb_temp_path,
             "-opdbqt",
+            "-h",
             "-O", pdbqt_output_path,
             "--partialcharge", "gasteiger"
         ]

@@ -77,6 +77,7 @@ def run_autodock_gpu(smiles, receptor_fld_path, output_dir, nrun=50, ligand_pdbq
         '--ffile', receptor_fld_path,
         '--lfile', ligand_pdbqt_full_path,
         '--nrun', str(nrun),
+        '-lsmet', 'sw',
         '--gbest', '1',  # Output the best pose as a PDBQT file
     ]
     print(cmd)

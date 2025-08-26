@@ -32,7 +32,7 @@ MUTATION_MODEL_CONFIG_PATH = Path("paper_checkpoints/ecfp4_with_counts_with_rank
 MUTATION_MODEL_CHECKPOINT_PATH = Path("paper_checkpoints/ecfp4_with_counts_with_rank/weights.ckpt")
 MUTATION_MODEL_VOCAB_PATH = Path("paper_checkpoints/vocabulary.pkl")
 
-RECEPTOR_FLD_PATH = Path("autodock_linux/Docking-4ieh-main/4ieh_protein.maps.fld").resolve()
+RECEPTOR_FLD_PATH = Path("example/4uxl.maps.fld").resolve()
 
 OUTPUT_DIR = Path("output_files")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -534,8 +534,8 @@ def main():
     parser.add_argument("--seed", type=int, default=1337, help="Random seed")
     parser.add_argument("--diversity_filter", action="store_true",
                     help="Enable diversity-aware selection using Tanimoto")
-    parser.add_argument("--similarity_threshold", type=float, default=0.6,
-                        help="Max Tanimoto similarity allowed among selected (default 0.6)")
+    parser.add_argument("--similarity_threshold", type=float, default=0.40,
+                        help="Max Tanimoto similarity allowed among selected (default 0.4)")
     parser.add_argument("--fp_radius", type=int, default=2, help="ECFP radius (default 2)")
     parser.add_argument("--fp_bits", type=int, default=2048, help="ECFP nBits (default 2048)")
 

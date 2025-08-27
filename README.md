@@ -1,112 +1,141 @@
-# Integrating AI-Based Generative Models with Physics-Based Optimization via Genetic Algorithms for Novel Binder Discovery
+# Genetic SMILES Optimizer
 
-## Objective
+This repository implements a **genetic algorithm pipeline for de novo ligand discovery**, combining deep generative models with docking-based evaluation and diversity control.
 
-The objective of this research is to develop a novel computational framework that synergizes artificial intelligence (AI)-based generative models with physics-based optimization techniques, guided by genetic algorithms, to discover new molecular binders for a given target receptor. By leveraging receptor map files, the framework aims to generate and iteratively optimize molecular structures represented as SMILES strings, ultimately yielding novel compounds with high binding affinity and specificity.
+The workflow integrates:
 
-## Introduction
-
-### Background
-
-The discovery of new molecular binders is a cornerstone of drug development and chemical biology. Traditional approaches to ligand discovery often involve high-throughput screening and combinatorial chemistry, which can be time-consuming and resource-intensive. Recent advancements in AI, particularly in generative models, have opened new avenues for in silico molecular design. These models can generate vast libraries of novel compounds by learning patterns from existing chemical databases. However, AI-generated molecules may not always exhibit desired physicochemical properties or biological activities.
-
-### Problem Statement
-
-A significant challenge in AI-driven molecular generation is guiding the generative process toward molecules with specific biological functions, such as high-affinity binding to a target receptor. Purely data-driven models lack explicit incorporation of physical and biological principles, which can result in the generation of chemically plausible but biologically inactive compounds. Therefore, integrating physics-based methods into the AI generative process is crucial for producing functionally relevant molecules.
-
-### Proposed Solution
-
-We propose a computational framework that combines AI-based generative models with physics-based optimization methods using a genetic algorithm (GA) approach. The framework utilizes receptor map files to inform the optimization process, ensuring that generated molecules are evaluated and evolved based on their predicted binding affinity to the target receptor. By incorporating genetic operations such as mutation and crossover, the algorithm iteratively refines the molecular population, steering it toward novel binders with enhanced properties.
-
-### Applications
-
-This integrated approach has significant implications for drug discovery and chemical biology:
-
-- **Accelerated Ligand Discovery**: Reduces the time and cost associated with experimental screening by focusing computational resources on promising candidate molecules.
-- **Targeted Molecular Design**: Enables the generation of molecules tailored to bind specific receptors, facilitating the development of selective drugs with fewer off-target effects.
-- **Exploration of Chemical Space**: Explores uncharted regions of chemical space that may contain unique scaffolds and chemotypes not present in existing databases.
-- **Optimization of Lead Compounds**: Offers a systematic method for optimizing existing molecules by improving their binding affinity and pharmacokinetic properties through iterative refinement.
-
-## Methodology
-
-### Overview
-
-The proposed framework integrates AI-based molecular generation with physics-based optimization guided by a genetic algorithm. The process involves several key steps:
-
-1. **Initial Molecular Generation**
-   - **AI-Based Generative Model**: Utilize a trained generative model to produce an initial population of molecular structures represented as SMILES strings.
-   - **Validity Filtering**: Ensure that generated molecules are chemically valid and can be processed for further analysis.
-
-2. **Receptor Map Utilization**
-   - **Receptor Map File Integration**: Incorporate receptor map files that provide spatial and energetic information about the target receptor's binding site.
-   - **Docking Preparation**: Convert valid SMILES strings into three-dimensional molecular structures compatible with docking simulations.
-
-3. **Physics-Based Evaluation**
-   - **Molecular Docking Simulations**: Use physics-based docking software to predict the binding affinity of each molecule to the target receptor.
-   - **Scoring Functions**: Apply scoring functions that quantify the interaction energy between the molecule and the receptor.
-
-4. **Genetic Algorithm Operations**
-   - **Selection**: Choose molecules with the highest predicted binding affinities for reproduction.
-   - **Crossover**: Perform crossover operations by combining fragments of parent molecules to create offspring, promoting diversity.
-   - **Mutation**: Introduce random modifications to molecular structures to explore new chemical spaces and avoid local optima.
-   - **Validity and Repair**: Use AI-based models to repair any invalid molecules resulting from crossover and mutation, ensuring chemical plausibility.
-
-5. **Iterative Optimization**
-   - **Population Update**: Form a new generation of molecules from the offspring and mutated individuals.
-   - **Convergence Assessment**: Evaluate the population for convergence criteria, such as a plateau in binding affinity improvements.
-   - **Loop Continuation**: Repeat the evaluation and genetic operations for a predefined number of generations or until convergence is achieved.
-
-### Detailed Steps
-
-#### 1. Initial Molecular Generation
-
-- **Generative Model Selection**: Choose an AI-based generative model capable of producing diverse and novel SMILES strings. Examples include variational autoencoders (VAEs) or generative adversarial networks (GANs) trained on large chemical databases.
-- **Sample Generation**: Generate an initial population of molecules, ensuring diversity to cover a broad chemical space.
-- **Chemical Validity Check**: Use cheminformatics tools (e.g., RDKit) to verify the chemical validity of the generated molecules, filtering out any invalid structures.
-
-#### 2. Receptor Map Utilization
-
-- **Receptor Preparation**: Obtain or generate receptor map files that describe the binding site's characteristics, including hydrophobicity, electrostatic potentials, and hydrogen-bond donors/acceptors.
-- **Molecule Preparation**: Convert valid SMILES strings to three-dimensional structures using molecular modeling software, adding hydrogen atoms and optimizing geometries as necessary.
-- **Compatibility Assurance**: Ensure that the molecular structures are compatible with the docking software's requirements, addressing issues such as atom types and charge states.
-
-#### 3. Physics-Based Evaluation
-
-- **Docking Simulation Setup**: Configure docking simulations using software like AutoDock-GPU, specifying parameters such as grid dimensions and search algorithms.
-- **Binding Affinity Prediction**: Run simulations to predict how each molecule interacts with the receptor, generating binding poses and calculating interaction energies.
-- **Scoring and Ranking**: Apply scoring functions to quantify binding affinities, ranking molecules from highest to lowest affinity.
-
-#### 4. Genetic Algorithm Operations
-
-- **Selection Mechanism**: Implement a selection strategy (e.g., roulette wheel selection or tournament selection) to choose parent molecules based on their binding scores.
-- **Crossover Implementation**:
-  - **Crossover Point Identification**: Identify suitable crossover points in the SMILES strings, avoiding breaking chemical syntax and maintaining structural integrity.
-  - **Offspring Generation**: Combine segments of parent SMILES strings at the crossover points to create new offspring molecules.
-  - **Repair Mechanism**: Use the AI-based generative model to repair any syntactically invalid SMILES strings resulting from crossover.
-- **Mutation Process**:
-  - **Mutation Operators**: Define mutation operations such as atom substitution, bond addition/removal, or functional group modification.
-  - **Application of Mutation**: Apply mutations to selected molecules with a predefined mutation rate, introducing variability.
-  - **Validity Check**: Ensure mutated molecules are chemically valid and repair them using the generative model if necessary.
-
-#### 5. Iterative Optimization
-
-- **Population Renewal**: Form a new generation by combining offspring and mutated molecules, maintaining the population size.
-- **Convergence Criteria**: Monitor improvements in binding affinities and assess whether the optimization process is converging.
-- **Termination Condition**: Decide to terminate the algorithm when improvements fall below a threshold or after a set number of generations.
-- **Final Selection**: Select the top-performing molecules from the final generation for further analysis or experimental validation.
-
-### Rationale
-
-- **Integration of AI and Physics-Based Methods**: Combining AI-generated diversity with physics-based evaluation ensures that generated molecules are not only novel but also possess desired biological activity.
-- **Genetic Algorithm Advantages**: GAs are well-suited for optimization problems with large search spaces and can effectively navigate complex fitness landscapes.
-- **Use of Receptor Maps**: Incorporating detailed receptor information guides the optimization process toward molecules that are more likely to bind effectively.
-- **Validity and Repair Mechanisms**: Ensuring chemical validity at each step prevents the propagation of errors and maintains the quality of the molecular population.
-- **Iterative Improvement**: The cyclical nature of the GA allows for continuous refinement of molecules, increasing the likelihood of discovering high-affinity binders.
-
-## Conclusion
-
-The proposed framework offers a novel approach to molecular binder discovery by effectively integrating AI-based generative models with physics-based optimization within a genetic algorithm. By utilizing receptor map files and incorporating mechanisms to maintain chemical validity, the framework is designed to generate and optimize molecules that are both novel and biologically relevant. This method holds significant potential for accelerating drug discovery and expanding the repertoire of compounds available for therapeutic development.
+* **RDKit** for SMILES parsing, conformer generation, and fingerprinting
+* **PyTorch** for pretrained generative/mutation model inference
+* **AutoDock-GPU** for docking
+* **Open Babel** and **Gypsum-DL** for 3-D structure generation and format conversions
+* **PoseBusters** for stereochemical validation
 
 ---
 
-**Keywords**: AI-based generative models, genetic algorithms, molecular docking, physics-based optimization, novel binders, SMILES strings, receptor map files, drug discovery.
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/rajkumar1501/genetic-smiles-optimizer.git
+   cd genetic-smiles-optimizer
+   ```
+
+2. **Create and activate the conda environment**
+   The environment is defined in `environment.yml`:
+
+   ```bash
+   conda env create -f environment.yml
+   conda activate mol2mol_env
+   ```
+
+3. **Prepare receptor grids (.fld)** for AutoDock-GPU using your target protein structure.
+
+---
+
+## Workflow
+
+### 1. Initial Population Generation
+
+* **Generative sampling**: molecules are drawn from a pretrained SMILES generative model.
+* **Seed-based initialization**: if a `--seed_smiles` is provided, the initial population is split evenly between seed mutations (via MolFormer) and generative samples.
+
+### 2. Generation Loop
+
+Each generation proceeds through:
+
+1. **Molecular preparation & docking**
+
+   * SMILES → 3-D coordinates with RDKit & Open Babel
+   * Docking via AutoDock-GPU with multiple runs (`--nrun`)
+   * Best pose → SDF, validated by PoseBusters
+   * Molecules failing PoseBusters checks are discarded
+
+2. **Selection with diversity control**
+
+   * Candidates ranked by docking score
+   * Morgan fingerprints computed
+   * Greedy selection ensures Tanimoto similarity ≤ `--similarity_threshold`
+   * Top fraction retained as elite pool
+
+3. **Reproduction (mutation & crossover)**
+
+   * Mutation: MolFormer generates SMILES variants per parent
+   * Crossover: two parents spliced → repaired/expanded by mutation model
+   * Elites always carried forward; duplicates removed; population shuffled
+
+### 3. Termination
+
+* Loop continues for `--generations` or until no viable offspring survive
+* Outputs include docking scores, PoseBusters results, diversity analysis, and final candidate set
+
+---
+
+## Usage
+
+Run the pipeline with:
+
+```bash
+python genetic_algorithm.py [options]
+```
+
+### Arguments
+
+* `--population_size` (int, default: **10**) – Number of molecules in the population
+* `--generations` (int, default: **5**) – Number of generations
+* `--mutations_per_parent` (int, default: **5**) – Mutations per parent
+* `--crossover_offspring_per_generation` (int, default: **5**) – Number of crossover offspring
+* `--seed_smiles` (str) – Optional seed SMILES string
+* `--nrun` (int, default: **100**) – AutoDock-GPU runs per docking
+* `--receptor_fld` (str, default: `example/4uxl.maps.fld`) – Path to receptor `.fld` file
+* `--output_dir` (str, default: `output_files`) – Directory for results
+* `--seed` (int, default: **1337**) – Random seed
+* `--diversity_filter` – Enable diversity control in selection
+* `--similarity_threshold` (float, default: **0.40**) – Max Tanimoto similarity allowed
+* `--fp_radius` (int, default: **2**) – Morgan fingerprint radius
+* `--fp_bits` (int, default: **2048**) – Number of fingerprint bits
+
+---
+
+## Examples
+
+* **Default run**
+
+  ```bash
+  python genetic_algorithm.py
+  ```
+
+* **Larger population and more generations**
+
+  ```bash
+  python genetic_algorithm.py --population_size 50 --generations 20
+  ```
+
+* **Seed-guided initialization**
+
+  ```bash
+  python genetic_algorithm.py --seed_smiles "CCO"
+  ```
+
+* **Docking with custom receptor**
+
+  ```bash
+  python genetic_algorithm.py --receptor_fld my_receptor.fld --nrun 200
+  ```
+
+* **Enable diversity filter**
+
+  ```bash
+  python genetic_algorithm.py --diversity_filter --similarity_threshold 0.3
+  ```
+
+---
+
+## Output
+
+Results are stored in `output_files/` (or `--output_dir`):
+
+* Docking scores per molecule
+* PoseBusters validation flags
+* Best poses in `.pdbqt` and `.sdf` formats
+* Final population statistics

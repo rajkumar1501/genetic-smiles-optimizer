@@ -1,2 +1,6 @@
 .DS_STORE
 paper_checkpoints/ecfp4_with_counts_with_rank/weights.ckpt
+autodock_linux
+output_files
+output_files_2
+example

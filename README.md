@@ -102,7 +102,7 @@ python genetic_algorithm.py [options]
 * **Default run**
 
   ```bash
-  python genetic_algorithm.py
+    python genetic_algorithm.py  --population_size 200 --generations 10 --mutations_per_parent 10 --crossover_offspring_per_generation 15 --similarity_threshold 0.4
   ```
 
 * **Larger population and more generations**
@@ -114,7 +114,7 @@ python genetic_algorithm.py [options]
 * **Seed-guided initialization**
 
   ```bash
-  python genetic_algorithm.py --seed_smiles "CCO"
+  python genetic_algorithm.py  --population_size 200 --generations 10 --mutations_per_parent 10 --crossover_offspring_per_generation 15 --seed_smiles "C[C@@H]1c2cc(ccc2C(=O)N(Cc3c(c(n(n3)C)C#N)-c4cc(c(nc4)N)O1)C)F" --similarity_threshold 0.4
   ```
 
 * **Docking with custom receptor**
